@@ -59,7 +59,7 @@
 		"**/.git": true,
 		"**/node_modules": true,
 		"**/deploy": true,
-		"**/scripts": true,
+		// "**/scripts": true,
 		"next-env.d.ts": true,
 		"components.json": true,
 		".gitignore": true,

@@ -21,3 +21,11 @@ Our implementation roadmap
 6. MCP integration – connect external development tools.
 7. Autonomous development – let Codex implement, test, fix and verify changes.
 8. Final evaluation – test the complete system against real project tasks.
+
+
+Hook	কাজ
+SessionStart	Context প্রদান
+UserPromptSubmit	Instruction মনে করিয়ে দেওয়া
+PreToolUse	Action allow / deny / ask
+PostToolUse	Execution-এর পর যাচাই
+Stop	Completion reminder

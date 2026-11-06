@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/hook-input.schema.json",
+  "title": "Universal AI Agent Hook Input",
+  "description": "Vendor-neutral normalized input passed by a tool-specific hook adapter to shared validation scripts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event",
+    "toolName"
+  ],
+  "properties": {
+    "event": {
+      "type": "string",
+      "enum": [
+        "session_start",
+        "prompt_submit",
+        "pre_tool_use",
+        "post_tool_use",
+        "stop"
+      ]
+    },
+    "toolName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "toolInput": {
+      "type": [
+        "object",
+        "string",
+        "null"
+      ]
+    },
+    "command": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requestedPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "operation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "read",
+        "create",
+        "modify",
+        "delete",
+        "rename",
+        "move",
+        "execute",
+        "install",
+        "deploy",
+        "database_write",
+        null
+      ]
+    },
+    "taskFile": {
+      "type": "string",
+      "default": "pending-task.md"
+    },
+    "taskId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "allowedPaths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "permissionGranted": {
+      "type": "boolean",
+      "default": false
+    },
+    "permissionScope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "changedFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "acceptanceCriteriaMet": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "verificationExecuted": {
+      "type": "boolean",
+      "default": false
+    },
+    "verificationResults": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "historyArchived": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
