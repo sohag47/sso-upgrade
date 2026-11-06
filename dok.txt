@@ -1,0 +1,23 @@
+Advanced configurations we should implement
+Feature Purpose
+Specialized agents Separate development, testing and reviewing
+Skills Reusable development and testing expertise
+Instructions Enforce project architecture and coding standards
+Hooks Automate checks and enforce guardrails at supported lifecycle events
+Workflows Coordinate multi-step development tasks
+MCP servers Give agents access to external tools and services
+Agent orchestration Delegate tasks and coordinate results
+Permissions Control file access and command execution
+Automated testing Run lint, type checking and tests
+Git integration Review diffs and protect existing changes
+
+Our implementation roadmap
+
+1. Agent architecture – define responsibilities, delegation and coordination.
+2. Advanced agent configurations – improve planner, developer, tester and reviewer.
+3. Advanced skills – feature development, unit testing, integration testing, debugging and refactoring.
+4. Hooks – automate formatting, linting, validation and safety checks.
+5. Advanced workflows – complete feature development and bug-fixing pipelines.
+6. MCP integration – connect external development tools.
+7. Autonomous development – let Codex implement, test, fix and verify changes.
+8. Final evaluation – test the complete system against real project tasks.

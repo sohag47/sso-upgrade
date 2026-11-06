@@ -1,259 +1,179 @@
-# AGENTS.md
+# Project Development Guidelines
 
-This file is the central instruction and navigation guide for all AI coding agents working in this project. All agents must follow its applicable instructions and use it to discover project documentation, skills, specialized agents, and tool-specific configurations.
+## 1. Project Overview
 
-## 1. Project Identity
+This is a Next.js Admin Panel built with TypeScript, React, Tailwind CSS, Redux Toolkit, React Hook Form, Zod, and the existing UI component system.
 
-- **Project:** Next.js Admin Panel
-- **Purpose:** A reusable, production-ready admin panel architecture for enterprise applications.
-- **Application Type:** Enterprise web application.
-- **Primary Users:** Administrators, employees, and internal business users.
-- **Backend:** External REST API.
+The goal is to maintain a consistent, reliable, and maintainable codebase.
 
-The project prioritizes maintainability, scalability, reliability, security, performance, and developer productivity.
+These guidelines apply to every AI coding agent working on this project.
 
-## 2. AI Agent Entry Protocol
+## 2. Core Principles
 
-Before starting any task, agents must:
+- Inspect existing code before making changes.
+- Follow existing architecture and coding conventions.
+- Reuse existing components, utilities, hooks, and patterns.
+- Avoid unnecessary dependencies, abstractions, and refactoring.
+- Never invent API contracts or business rules.
+- Keep implementations simple and maintainable.
+- Modify only files relevant to the current task.
+- Ask for clarification when requirements are ambiguous.
 
-1. Read and follow this `AGENTS.md`.
-2. Inspect the existing project structure and relevant source files.
-3. Identify the technologies, dependencies, and established implementation patterns.
-4. Consult relevant documentation, skills, and agent configurations when needed.
-5. Understand the requested task and identify its scope.
-6. Avoid assumptions about files, features, APIs, or configurations without verification.
-7. Make focused changes and verify the implementation.
+## 3. Project Structure
 
-Read only the context necessary for the current task. Avoid unnecessary file inspection and unrelated modifications.
+Follow the existing source structure and conventions.
 
-## 3. Technology Stack
+Inspect relevant directories before creating or modifying files. Do not introduce new architectural patterns without a clear requirement.
 
-The project uses the following preferred technologies:
+## 4. Project Guidance
 
-| Category         | Technology                           |
-| ---------------- | ------------------------------------ |
-| Framework        | Next.js App Router                   |
-| Language         | TypeScript                           |
-| Styling          | Tailwind CSS                         |
-| UI Components    | shadcn/ui                            |
-| State Management | Redux Toolkit                        |
-| API Management   | Redux Toolkit-based API architecture |
-| Forms            | React Hook Form                      |
-| Validation       | Zod                                  |
-| Icons            | Lucide React                         |
-| Version Control  | Git                                  |
+### Guidance Discovery Index
 
-Rules:
+The root-level `SKILLS_INDEX.md` maps task types to relevant instructions, skills, and workflows.
 
-- Follow installed package versions and existing project conventions.
-- Prefer existing dependencies over introducing alternatives.
-- Avoid unnecessary packages and duplicate solutions.
-- Do not upgrade, replace, or remove dependencies without justification.
-- Consult official documentation when API behavior is uncertain.
+Before implementation:
 
-## 4. Project Architecture
+1. Read `SKILLS_INDEX.md`.
+2. Identify the guidance files relevant to the current task.
+3. Load only those files.
+4. Do not read unrelated guidance files.
 
-The project follows a feature-oriented architecture using Next.js App Router.
+If an indexed file does not exist, do not assume its contents.
 
-### Directory Responsibilities
+## 5. Task Management
 
-| Directory                 | Responsibility                                 |
-| ------------------------- | ---------------------------------------------- |
-| `src/app/`                | Routing, pages, layouts, and route handlers    |
-| `src/components/ui/`      | UI primitives and shadcn/ui components         |
-| `src/components/shared/`  | Application-wide reusable components           |
-| `src/components/layouts/` | Shared layouts and navigation                  |
-| `src/features/`           | Feature-specific components and business logic |
-| `src/hooks/`              | Globally reusable React hooks                  |
-| `src/lib/`                | Shared libraries and configurations            |
-| `src/store/`              | Redux store and global state                   |
-| `src/types/`              | Shared TypeScript types                        |
-| `src/utils/`              | Shared utility functions                       |
-| `public/`                 | Static assets                                  |
-| `docs/`                   | Project documentation                          |
+The root-level `pending-task.md` is the single source of truth for the currently active task.
 
-Architecture rules:
+### Mandatory Startup
 
-- Organize business functionality inside `features/`.
-- Keep feature-specific code within its owning feature whenever practical.
-- Keep genuinely reusable functionality in shared directories.
-- Separate routing concerns from business logic.
-- Follow existing folder and naming conventions.
-- Do not create unnecessary files, directories, or abstraction layers.
-- Inspect the existing architecture before making structural changes.
+Whenever the user asks to start or continue a development task:
 
-## 5. Instruction Hierarchy
+1. Locate and read the root-level `pending-task.md` first.
+2. Understand its Task ID, purpose, requirements, and acceptance criteria.
+3. Read the execution policy.
+4. Load only relevant instructions, skills, and workflows.
+5. Inspect the existing implementation.
+6. Start implementation only after understanding the requirements.
 
-Agents must consider the following instruction sources:
+**Never start implementation before reading `pending-task.md`.**
 
-1. AI platform and system instructions.
-2. Explicit user requirements.
-3. Root `AGENTS.md`.
-4. Applicable nested `AGENTS.md` files.
-5. Referenced project documentation.
-6. Applicable reusable skills.
-7. AI tool-specific configurations.
+Do not infer the current task from previous conversations or task history.
 
-This is the project's instruction policy, not a replacement for individual AI tools' native instruction precedence.
+### Pending Task Rules
+
+Every task must include:
+
+- Task ID (sequential: TASK-0001, TASK-0002, etc.)
+- Title and purpose
+- Requirements
+- Acceptance criteria
+- Relevant context, when necessary
+- Required verification
+- Commit message
+
+If `pending-task.md` does not exist or requirements are incomplete, ask the user for clarification.
+
+Never automatically overwrite, delete, or replace `pending-task.md`.
+
+### Task History
+
+Archive completed tasks in `.agents/task-history/`.
+
+Filename format:
+
+`TASK-0001-short-task-purpose.md`
 
 Rules:
 
-- Follow applicable instructions according to their scope and priority.
-- Nested instructions apply to their relevant directories.
-- Skills provide workflows, not replacements for mandatory instructions.
-- Tool-specific configurations must not silently weaken project requirements.
-- Identify and resolve instruction conflicts safely.
-- Ask for clarification when a significant conflict cannot be resolved.
+- Preserve an exact copy of the original `pending-task.md`.
+- Never overwrite an existing history file.
+- Archive only fully completed tasks.
+- Do not modify archived requirements or acceptance criteria.
+- Never delete or replace `pending-task.md` without explicit user permission.
 
-## 6. Documentation Index
+The user prepares or updates `pending-task.md` for the next task.
 
-Project documentation is maintained separately from this file.
+## 6. Task Execution Process
 
-| Document                      | Purpose                                 |
-| ----------------------------- | --------------------------------------- |
-| `docs/project-overview.md`    | Project overview and requirements       |
-| `docs/architecture.md`        | Application architecture                |
-| `docs/coding-standards.md`    | Detailed coding conventions             |
-| `docs/api-guidelines.md`      | API integration rules                   |
-| `docs/form-guidelines.md`     | Form handling and validation            |
-| `docs/state-management.md`    | Redux architecture and state management |
-| `docs/ui-guidelines.md`       | UI and component standards              |
-| `docs/security-guidelines.md` | Security requirements                   |
-| `docs/business-rules.md`      | Application business rules              |
+For every task:
 
-These documents are a proposed documentation structure. Consult existing files and create missing documents only when needed.
+1. Read the root-level `pending-task.md` first.
+2. Read `AGENTS.md` and the execution policy.
+3. Load only relevant instructions, skills, and workflows.
+4. Inspect existing implementation and related files.
+5. Understand the impact of the changes.
+6. Implement only the requested changes.
+7. Review the final diff.
+8. Run permitted verification commands.
+9. Report results and remaining issues.
+10. Archive the original task file only when all acceptance criteria are satisfied.
 
-## 7. Skills Registry
+Follow the Task History rules in Section 5. Do not perform unrelated improvements.
 
-Reusable task workflows are maintained under:
+## 7. Commit Message Policy
 
-`.agents/skills/`
+Every task must include a commit message.
 
-Each skill should have its own directory containing a `SKILL.md` file.
+The agent must:
 
-Recommended skills:
+- Use the commit message provided in the task file.
+- Include it in the completion report.
+- Preserve it in the archived task file.
 
-- `crud-development` — CRUD feature implementation.
-- `bug-fixing` — Systematic bug investigation and resolution.
-- `api-integration` — External API integration.
-- `code-review` — Code quality and security review.
+The agent must NEVER execute Git commit or push operations.
 
-Rules:
+The user handles final review, commit, and push manually.
 
-- Discover available skills before using them.
-- Use a skill when its purpose matches the current task.
-- Follow its documented workflow.
-- Avoid loading unrelated skills.
-- Do not duplicate permanent project instructions inside skills.
+## 8. Development Rules
 
-## 8. Agent Registry
+### Code Quality
 
-Specialized agent configurations are maintained separately from general project instructions.
+- Use TypeScript appropriately.
+- Avoid unnecessary `any`.
+- Keep components focused and reusable.
+- Follow existing naming conventions.
+- Avoid duplicated functionality.
+- Handle loading, error, and empty states where applicable.
 
-Recommended agent roles:
+### Forms
 
-- **Planner:** Requirement analysis and implementation planning.
-- **Developer:** Feature implementation and bug fixing.
-- **Reviewer:** Code quality, security, and implementation review.
+Follow existing React Hook Form and Zod patterns. Read relevant form instructions and skills.
 
-The proposed organizational location is:
+### Data Tables
 
-`.agents/agents/`
+Reuse existing table components and pagination patterns. Do not introduce another table library without explicit approval.
 
-Actual configuration files must follow the format and location supported by the active AI tool.
+### API Integration
 
-Rules:
+Follow existing API integration and Redux Toolkit patterns. Never invent API contracts.
 
-- Delegate tasks according to agent responsibilities.
-- Avoid unnecessary agent delegation.
-- Keep parallel tasks independent when possible.
-- Prevent conflicting modifications to shared files.
-- Review delegated work before accepting it.
+### UI Implementation
 
-## 9. Tool Configuration Registry
+Reuse existing UI components and styling conventions. Do not introduce a new UI library without explicit approval.
 
-AI tool-specific configurations must remain separate from tool-independent project instructions.
-
-Recommended locations:
-
-| Tool / Purpose       | Location          |
-| -------------------- | ----------------- |
-| OpenAI Codex         | `.codex/`         |
-| GitHub Copilot       | `.github/`        |
-| Shared Skills        | `.agents/skills/` |
-| Project Instructions | `AGENTS.md`       |
-
-Rules:
-
-- Follow each tool's supported configuration format.
-- Do not assume one tool can automatically read another tool's configuration.
-- Keep tool-specific settings separate.
-- Document additional tools, MCP servers, hooks, and integrations when introduced.
-- Never assume a tool or integration is available without verification.
-
-## 10. Development Principles & Coding Standards
-
-All implementations must follow these principles:
-
-- Prefer simple, readable, maintainable code.
-- Use TypeScript with strict type safety.
-- Avoid `any`, unnecessary type assertions, and duplicated logic.
-- Build reusable components when reuse provides genuine value.
-- Keep components focused on clear responsibilities.
-- Follow existing naming and file organization conventions.
-- Prefer existing utilities and shared components.
-- Avoid unnecessary dependencies and over-engineering.
-- Preserve existing functionality.
-- Consider accessibility, responsive design, and performance.
-- Follow detailed conventions in the relevant project documentation.
-
-## 11. Development Workflow & Quality Assurance
-
-Follow this development lifecycle:
-
-1. **Understand:** Analyze requirements and existing implementation.
-2. **Inspect:** Identify affected files, dependencies, and potential side effects.
-3. **Plan:** Define a focused implementation approach.
-4. **Implement:** Make only necessary changes.
-5. **Verify:** Run relevant linting, type checks, tests, and builds when available.
-6. **Review:** Inspect the final changes for correctness and regressions.
-7. **Report:** Summarize implementation and verification results.
-
-Rules:
-
-- Do not claim tests passed unless they were actually executed.
-- Do not ignore existing failures without reporting them.
-- Avoid unrelated refactoring.
-- Update relevant documentation when implementation changes affect it.
-- Never sacrifice correctness for speed.
-
-## 12. Security, Git & Reporting Guidelines
-
-### Security
-
-- Never expose secrets, credentials, tokens, or private configuration.
-- Never hardcode sensitive values.
-- Validate and safely handle external API data.
-- Follow secure authentication, authorization, and error-handling practices.
-- Do not introduce insecure dependencies or patterns.
-- Respect existing permission and security boundaries.
-
-### Git & Change Management
-
-- Inspect existing Git changes before modifying files.
-- Never overwrite or discard unrelated user changes.
-- Do not reset, revert, commit, push, or modify Git history without authorization.
-- Keep changes focused and reviewable.
-- Avoid modifying generated files unless required.
-
-### Final Reporting
+## 9. Completion Report
 
 After completing a task, report:
 
-- What was implemented or changed.
-- Which important files were affected.
-- What verification was performed.
-- Any failed checks or remaining issues.
-- Any important assumptions or decisions.
+- Task ID and title
+- Summary of changes
+- Files created or modified
+- Verification commands and results
+- Known issues or incomplete requirements
+- Required commit message
+- Task history file path
 
-Be concise, accurate, and transparent. Never claim work was completed or verified when it was not.
+Never claim a command passed if it was not executed.
+
+Never report a task as complete if its acceptance criteria are not satisfied.
+
+## 10. Final Responsibility
+
+The AI agent is responsible for implementation and verification within permitted boundaries.
+
+The user retains control over:
+
+- Restricted command execution
+- Final code review
+- Git commit and push
+- Deployment and release decisions
