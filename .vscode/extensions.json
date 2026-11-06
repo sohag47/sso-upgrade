@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "dsznajder.es7-react-js-snippets",
+        "kisstkondoros.vscode-gutter-preview",
+        "xabikos.javascriptsnippets",
+        "pkief.material-icon-theme",
+        "sumitsaha.learn-with-sumit-theme",
+        "christian-kohler.path-intellisense",
+        "burkeholland.simple-react-snippets",
+        "bradlc.vscode-tailwindcss",
+        "voidzero.vite-plus-extension-pack",
+        "oven.bun-vscode",
+        "oxc.oxc-vscode"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": [
+        "typescript",
+        "react",
+        "react-perf",
+        "unicorn"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "typescript/no-unused-vars": "off",
+        "no-console": "off"
+    },
+    "ignorePatterns": [
+        ".next/**",
+        "node_modules/**",
+        "dist/**",
+        "out/**",
+        "coverage/**"
+    ]
+}

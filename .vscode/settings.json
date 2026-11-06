@@ -1,0 +1,75 @@
+{
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.oxc": "always"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	// Improve readability
+	"editor.tabSize": 2,
+	"editor.wordWrap": "on",
+	"editor.lineNumbers": "on",
+	"editor.minimap.enabled": true, // Gives you more screen real estate
+	// Clean up terminal and file explorer views
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	// Smooth typing experience
+	"editor.cursorBlinking": "expand",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.smoothScrolling": true,
+	// Tailwind specific (helps with class sorting automation if using the prettier plugin)
+	"tailwindCSS.experimental.classRegex": [
+		[
+			"cva\\(([^)]*)\\)",
+			"[\"'`]([^\"'`]*)[\"'`]"
+		]
+	],
+	"diffEditor.codeLens": true,
+	"better-comments.highlightPlainText": true,
+	"json.format.keepLines": true,
+	"merge-conflict.autoNavigateNextConflict.enabled": true,
+	// AI setup
+	"github.copilot.chat.codeGeneration.useInstructionFiles": true,
+	"github.copilot.enable": {
+		"*": true
+	},
+	"search.exclude": {
+		"**/.next": true,
+		"**/node_modules": true,
+		"**/out": true,
+		"dist": true,
+		"**/deploy": true,
+	},
+	"files.exclude": {
+		"**/.next": true,
+		"**/.git": true,
+		"**/node_modules": true,
+		"**/deploy": true,
+		"**/scripts": true,
+		"next-env.d.ts": true,
+		"components.json": true,
+		".gitignore": true,
+		"tsconfig.tsbuildinfo": true,
+		"postcss.config.mjs": true,
+	},
+	// This stops VS Code from watching changes inside the giant Next build folder
+	"files.watcherExclude": {
+		"**/.next/**": true,
+		"**/node_modules/**": true,
+		"**/deploy": true,
+	},
+}

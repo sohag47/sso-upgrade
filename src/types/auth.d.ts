@@ -1,0 +1,3 @@
+type TAuth = {
+  email: string;
+};

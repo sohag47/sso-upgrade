@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Dashboard",
+    "url": "/",
+    "icon": "boxicons:dashboard-alt-filled",
+    "isActive": true
+  },
+  {
+    "title": "System Users",
+    "url": "/system-users",
+    "icon": "la:users-cog",
+    "isActive": true
+  },
+  {
+    "title": "Access User List",
+    "url": "/users",
+    "icon": "ci:users-group",
+    "isActive": true
+  },
+  {
+    "title": "Reports",
+    "url": "/reports",
+    "icon": "boxicons:file-report",
+    "isActive": true
+  }
+]
