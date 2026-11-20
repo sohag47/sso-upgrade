@@ -62,9 +62,19 @@
 		// "**/scripts": true,
 		"next-env.d.ts": true,
 		"components.json": true,
-		".gitignore": true,
+		// ".gitignore": true,
 		"tsconfig.tsbuildinfo": true,
 		"postcss.config.mjs": true,
+		// hide agents
+		"docs": true,
+		".agents": true,
+		".codex": true,
+		"SKILLS_INDEX.md": true,
+		// build artifacts
+		"**/scripts": true,
+		// tests
+		// "vitest.setup.ts": true,
+		// "vitest.config.mts": true
 	},
 	// This stops VS Code from watching changes inside the giant Next build folder
 	"files.watcherExclude": {

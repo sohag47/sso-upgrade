@@ -1,19 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { LoginFormValues, LoginResponse } from "@/features/login";
 import apiSlice from "../apiSlice";
 
 export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    submitLogin: builder.mutation<TLoginResponse, TLoginSchema>({
-      query: (form_data) => ({
+    submitLogin: builder.mutation<LoginResponse, LoginFormValues>({
+      query: (formData) => ({
         url: "/auth/login",
         method: "POST",
-        body: form_data,
+        body: formData,
       }),
     }),
-    submitForgotPassword: builder.mutation<
-      TResponse<null>,
-      TForgotPasswordFormValues
-    >({
+    submitForgotPassword: builder.mutation<TResponse<null>, TForgotPasswordFormValues>({
       query: (form_data) => ({
         url: "/auth/forgotPassword",
         method: "POST",
@@ -27,15 +24,13 @@ export const authApi = apiSlice.injectEndpoints({
         body: form_data,
       }),
     }),
-    changePassword: builder.mutation<TResponse<any>, TChangePasswordFormValues>(
-      {
-        query: (form_data) => ({
-          url: "/auth/changePassword",
-          method: "POST",
-          body: form_data,
-        }),
-      },
-    ),
+    changePassword: builder.mutation<TResponse<any>, TChangePasswordFormValues>({
+      query: (form_data) => ({
+        url: "/auth/changePassword",
+        method: "POST",
+        body: form_data,
+      }),
+    }),
   }),
 });
 
